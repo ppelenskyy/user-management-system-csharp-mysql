@@ -2,67 +2,82 @@
 
 class Program
 {
-
     static void Main(string[] args)
     {
         var ur = new UsuarioRepository();
         string? opcion;
         do
         {
-            opcion = MostrarMenu();
+            opcion = Utils.MostrarMenuPrincipal();
             switch (opcion)
             {
                 case "1":
-                {
-                    ur.AgregarUsuario();
-                    break;
-                }
-                case "2":
-                {
-                    ur.EliminarUsuario();
-                    break;
-                }
-                case "3":
-                {
-                    ur.MostrarUsuario();
-                    break;
-                }
-                case "4":
-                {
-                    ur.MostrarTodosLosUsuarios();
-                    break;
-                }
+                    {
+                        Console.WriteLine("""
 
+                        ┌────────────────────────────────────┐
+                        │         AGREGAR UN USUARIO         │
+                        └────────────────────────────────────┘
+                        """);
+                        ur.AgregarUsuario();
+                        break;
+                    }
+                case "2":
+                    {
+                        Console.WriteLine("""
+
+                        ┌────────────────────────────────────┐
+                        │        MODIFICAR UN USUARIO        │
+                        └────────────────────────────────────┘
+                        """);
+                        ur.ModificarUsuario();
+                        break;
+                    }
+                case "3":
+                    {
+                        Console.WriteLine("""
+
+                        ┌───────────────────────────────────┐
+                        │        ELIMINAR UN USUARIO        │
+                        └───────────────────────────────────┘
+                        """);
+                        ur.EliminarUsuario();
+                        break;
+                    }
+                case "4":
+                    {
+                        Console.WriteLine("""
+
+                        ┌────────────────────────────────────┐
+                        │         MOSTRAR UN USUARIO         │
+                        └────────────────────────────────────┘
+                        """);
+                        ur.MostrarUsuario();
+                        break;
+                    }
+                case "5":
+                    {
+                        Console.WriteLine("""
+
+                        ┌────────────────────────────────────┐
+                        │     MOSTRAR TODOS LOS USUARIOS     │
+                        └────────────────────────────────────┘
+                        """);
+                        ur.MostrarTodosLosUsuarios();
+                        break;
+                    }
                 case "0":
-                {
-                    Console.WriteLine("\n--- HASTA PRONTO ---");
-                    break;
-                }
+                    {
+                        Console.WriteLine("\n--- HASTA PRONTO ---");
+                        break;
+                    }
                 default:
-                {
-                    Console.WriteLine("\nOpción incorrecta elegir entre 0-4.");   
-                    break;
-                } 
+                    {
+                        Console.WriteLine("\nOpción incorrecta elegir entre 0-5.");
+                        break;
+                    }
             }
         }
         while (opcion != "0");
     }
-
-    private static string? MostrarMenu()
-    {
-        string? opcion;
-        Console.WriteLine("""
-
-                 === MENÚ ===
-            1.- Agregar usuario.
-            2.- Eliminar usuario.
-            3.- Mostrar un usuario.
-            4.- Mostrar todos los usuarios.
-            0.- Salir.
-            """);
-        Console.Write("\nOpción: ");
-        opcion = Console.ReadLine();
-        return opcion;
-    }
-
 }
