@@ -9,6 +9,7 @@ Sistema de gestión de usuarios que permite:
 
 - Dar de alta usuarios
 - Eliminar usuarios mediante DNI
+- Modificar un usuario
 - Buscar usuarios por DNI
 - Mostrar todos los usuarios registrados
 - Validar datos de entrada
